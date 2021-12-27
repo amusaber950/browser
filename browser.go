@@ -12,11 +12,16 @@ import (
 	"path/filepath"
 )
 
-// Stdout is the io.Writer to which executed commands write standard output.
-var Stdout io.Writer = os.Stdout
+var (
+	// Stdout is the io.Writer to which executed commands write standard output.
+	Stdout io.Writer = os.Stdout
 
-// Stderr is the io.Writer to which executed commands write standard error.
-var Stderr io.Writer = os.Stderr
+	// Stderr is the io.Writer to which executed commands write standard error.
+	Stderr io.Writer = os.Stderr
+
+	// Exported run command for control over the underlying exec.Command
+	RunCmd = runCmd
+)
 
 // OpenFile opens new browser window for the file path.
 func OpenFile(path string) error {
